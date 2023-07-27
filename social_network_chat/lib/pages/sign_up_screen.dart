@@ -1,8 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:social_network_chat/pages/login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
+  static const String id = 'sign_up_screen';
+
   const SignUpScreen({super.key});
 
   @override
@@ -109,7 +112,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   onPressed: () {
                     // TODO: - Submit form
                   },
-                  child: Text('Sign Up'))
+                  child: Text('Sign Up')),
+              TextButton(
+                  onPressed: () {
+                    // Go to sign screen
+                    Navigator.of(context)
+                        .pushReplacementNamed(SignInScreen.id);
+                  },
+                  child: Text('Sign In instead'))
             ]),
           ),
         ),
