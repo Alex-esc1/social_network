@@ -18,7 +18,21 @@ class _SignInScreenState extends State<SignInScreen> {
   String _email = '';
   String _password = '';
 
-  final FocusNode _passwordFocusNode = FocusNode();
+  late FocusNode _passwordFocusNode = FocusNode();
+
+  @override
+  void initState() {
+    _passwordFocusNode = FocusNode();
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _passwordFocusNode.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,8 +105,7 @@ class _SignInScreenState extends State<SignInScreen> {
               TextButton(
                   onPressed: () {
                     // Go to sign up screen
-                    Navigator.of(context)
-                        .pushReplacementNamed(SignUpScreen.id);
+                    Navigator.of(context).pushReplacementNamed(SignUpScreen.id);
                   },
                   child: Text('Sign Up instead'))
             ]),
